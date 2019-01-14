@@ -124,6 +124,7 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker\
     messaging \
     PixelLauncher \
+    PhoneLocationProvider \
     SoundPickerPrebuilt \
     Stk \
     Terminal \
@@ -133,6 +134,10 @@ PRODUCT_PACKAGES += \
 # Fonts
 PRODUCT_PACKAGES += \
     Havoc-Fonts
+
+# Phonelocation!
+PRODUCT_COPY_FILES +=  \
+    vendor/havoc/prebuilt/common/media/location/suda-phonelocation.dat:system/media/location/suda-phonelocation.dat
 
 # WeatherProvider
 PRODUCT_COPY_FILES += \
