@@ -97,12 +97,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/havoc/prebuilt/common/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
-# Latin IME lib
-ifeq ($(TARGET_ARCH),arm64)
-PRODUCT_COPY_FILES += \
-    vendor/havoc/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
-    vendor/havoc/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
+# LatinIME gesture typing
+ifeq ($(SUDA_CPU_ABI),arm64-v8a)
+PRODUCT_PACKAGES += \
+    GooglePinYin
+
+ PRODUCT_COPY_FILES += $(shell test -d vendor/havoc/prebuilt/app/GooglePinYin && \
+    find vendor/havoc/prebuilt/app/GooglePinYin -name '*.so' \
+    -printf '%p:system/app/GooglePinYin/lib/arm64/%f ')
 else
+PRODUCT_PACKAGES += \
+    LatinIME
+
 PRODUCT_COPY_FILES += \
     vendor/havoc/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
     vendor/havoc/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
@@ -124,12 +130,16 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker\
     messaging \
     PixelLauncher \
-    PhoneLocationProvider \
     SoundPickerPrebuilt \
     Stk \
     Terminal \
     WallpaperPickerGooglePrebuilt \
     WeatherProvider
+
+# Required packages
+PRODUCT_PACKAGES += \
+    PhoneLocationProvider \
+    ForceStop
 
 # Fonts
 PRODUCT_PACKAGES += \
