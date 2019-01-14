@@ -139,7 +139,8 @@ PRODUCT_PACKAGES += \
 # Required packages
 PRODUCT_PACKAGES += \
     PhoneLocationProvider \
-    ForceStop
+    ForceStop \
+    Calendar
 
 # Fonts
 PRODUCT_PACKAGES += \
