@@ -140,7 +140,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     PhoneLocationProvider \
     ForceStop \
-    Calendar
+    Calendar \
+    ViaBrowser
 
 # Fonts
 PRODUCT_PACKAGES += \
