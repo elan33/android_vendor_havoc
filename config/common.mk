@@ -239,6 +239,7 @@ PRODUCT_PACKAGES += \
     QStileCircleTrim \
     QStileCircleDualTone \
     QStileCircleGradient \
+    QStileCookie \
     QStileDottedCircle \
     QStileDualToneCircle \
     QStileInk \
